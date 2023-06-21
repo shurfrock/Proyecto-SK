@@ -1,0 +1,27 @@
+.contenedor {
+    display: flex;
+    align-items: center;
+}
+
+.hijo {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    margin: -25px 0 0 -25px;   
+}
+
+.my-button {
+    width: 350px; 
+    height: 150px; 
+    background-color: #56B5DF; 
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 50px;
+    border-radius: 10px;
+    border: none;
+}
+
+.my-button:hover{
+    background-color: #3a86a6; 
+    color: #ffffff;
+}
