@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
+  products = JSON.parse(localStorage.getItem('products') || '[]');
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

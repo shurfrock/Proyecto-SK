@@ -1,5 +1,5 @@
 <div class="button_margin" >
-    <button type="button" class="btn btn-primary" onclick="window.location.href = ''">HOME</button>
+    <button type="button" class="btn btn-primary" routerLink="">HOME</button>
 </div>
 <div class="margin_sides">
     <table class="table table-striped">
@@ -13,41 +13,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Computadora</td>
-                <td>8</td>
-                <td>$ 10</td>
-                <td>$ 200</td>
+            <tr *ngFor="let product of products">
                 <td>
-                    <button type="button" class="btn btn-danger"> Eliminar </button>
-                    <button type="button" class="btn btn-secondary"> Detalles </button>
+                    {{product.productName}}
                 </td>
-            </tr>
-            <tr>
-                <td>Computadora</td>
-                <td>8</td>
-                <td>$ 10</td>
-                <td>$ 200</td>
                 <td>
-                    <button type="button" class="btn btn-danger"> Eliminar </button>
-                    <button type="button" class="btn btn-secondary"> Detalles </button>
+                    {{product.productAmount}}
                 </td>
-            </tr>
-            <tr>
-                <td>Computadora</td>
-                <td>8</td>
-                <td>$ 10</td>
-                <td>$ 200</td>
                 <td>
-                    <button type="button" class="btn btn-danger"> Eliminar </button>
-                    <button type="button" class="btn btn-secondary"> Detalles </button>
+                    {{product.productCost}}
                 </td>
-            </tr>
-            <tr>
-                <td>Computadora</td>
-                <td>8</td>
-                <td>$ 10</td>
-                <td>$ 200</td>
+                <td></td>
                 <td>
                     <button type="button" class="btn btn-danger"> Eliminar </button>
                     <button type="button" class="btn btn-secondary"> Detalles </button>
@@ -56,6 +32,6 @@
         </tbody>
     </table>
     <div class="button_margin">
-        <button type="button" class="btn btn-success" onclick="window.location.href = 'newProduct'"> Nuevo Producto </button>
+        <button type="button" class="btn btn-success" routerLink="/newProduct"> Nuevo Producto </button>
     </div>  
 </div>

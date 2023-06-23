@@ -1,21 +1,39 @@
 <div class="button_margin" >
-    <button type="button" class="btn btn-secondary" onclick="window.location.href = 'products/:id'">Atras</button>
+    <button type="button" class="btn btn-secondary" routerLink="/products">Atras</button>
 </div>
 
 <div class="margin_sides">
-    <form>
+    <form [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Nombre del Producto</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label class="form-label">Nombre del Producto</label>
+            <input
+                [class.is-invalid]="newProductForm.get('productName')?.touched && newProductForm.get('productName')?.invalid"
+                type="text" 
+                class="form-control" 
+                formControlName="productName"
+            >
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Cantidad</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label class="form-label">Cantidad</label>
+            <input 
+                [class.is-invalid]="newProductForm.get('productAmount')?.touched && newProductForm.get('productAmount')?.invalid"
+                type="text" 
+                type="number" 
+                class="form-control" 
+                formControlName="productAmount"
+            >
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Costo USD</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label class="form-label">Costo $ USD</label>
+            <input 
+                [class.is-invalid]="newProductForm.get('productCost')?.touched && newProductForm.get('productCost')?.invalid"
+                type="text" 
+                type="number" 
+                class="form-control" 
+                formControlName="productCost"
+            >
         </div>
-        <button type="submit" class="btn btn-success">Guardar</button>
+        <p>Form Status: {{ newProductForm.status }}</p>
+        <button type="submit" class="btn btn-success" [disabled]="!newProductForm.valid">Guardar</button>
       </form>
 </div>
