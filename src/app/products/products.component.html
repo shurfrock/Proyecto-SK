@@ -25,8 +25,10 @@
                 </td>
                 <td></td>
                 <td>
-                    <button type="button" class="btn btn-danger"> Eliminar </button>
-                    <button type="button" class="btn btn-secondary"> Detalles </button>
+                    <div class="d-flex column-gap-3">
+                        <button type="button" class="btn btn-danger" (click)="deleteProduct(product.productId)"> Eliminar </button>
+                        <button type="button" class="btn btn-secondary"> Editar </button>
+                    </div> 
                 </td>
             </tr>
         </tbody>

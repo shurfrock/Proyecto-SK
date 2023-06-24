@@ -14,5 +14,8 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  deleteProduct(productId: number) {
+    this.products = this.products.filter((product: any) => product.productId !== productId);
+    localStorage.setItem('products', JSON.stringify(this.products));
+  }
 }

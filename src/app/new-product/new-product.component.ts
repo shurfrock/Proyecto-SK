@@ -21,10 +21,14 @@ export class NewProductComponent implements OnInit {
   });
 
   onSubmit(){
+    const productId = new Date().getTime();
     const products = JSON.parse(localStorage.getItem('products') || '[]');
-    products.push(this.newProductForm.value);
+    const newProduct = {
+      ...this.newProductForm.value,
+      productId,
+    };
+    products.push(newProduct);
     localStorage.setItem('products', JSON.stringify(products));
-    
     this.router.navigate(['/products']);
   }
 
