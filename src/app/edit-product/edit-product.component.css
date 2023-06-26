@@ -1,0 +1,11 @@
+.margin_sides{
+    padding-left: 400px;
+    padding-right: 400px;
+    padding-top: 50px;
+}
+
+.button_margin{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}

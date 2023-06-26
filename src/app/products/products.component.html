@@ -21,13 +21,13 @@
                     {{product.productAmount}}
                 </td>
                 <td>
-                    {{product.productCost}}
+                    $ {{product.productCost}}.00
                 </td>
                 <td></td>
                 <td>
                     <div class="d-flex column-gap-3">
                         <button type="button" class="btn btn-danger" (click)="deleteProduct(product.productId)"> Eliminar </button>
-                        <button type="button" class="btn btn-secondary"> Editar </button>
+                        <button type="button" class="btn btn-secondary" (click)="clickEditProduct(product.productId)"> Editar </button>
                     </div> 
                 </td>
             </tr>

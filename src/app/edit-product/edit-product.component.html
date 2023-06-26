@@ -3,7 +3,7 @@
 </div>
 
 <div class="margin_sides">
-    <form [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="newProductForm"  (ngSubmit)="onSubmit()">
         <div class="mb-3">
             <label class="form-label">Nombre del Producto</label>
             <input
@@ -25,13 +25,13 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Costo $ USD</label>
-            <input 
+            <input
                 [class.is-invalid]="newProductForm.get('productCost')?.touched && newProductForm.get('productCost')?.invalid"
                 type="text" 
                 class="form-control" 
                 formControlName="productCost"
             >
         </div>
-        <button type="submit" class="btn btn-success" [disabled]="!newProductForm.valid">Guardar</button>
+        <button type="submit" class="btn btn-success">Guardar</button>
       </form>
 </div>

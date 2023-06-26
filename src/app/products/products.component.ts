@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -9,7 +10,7 @@ export class ProductsComponent implements OnInit {
 
   products = JSON.parse(localStorage.getItem('products') || '[]');
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -17,5 +18,9 @@ export class ProductsComponent implements OnInit {
   deleteProduct(productId: number) {
     this.products = this.products.filter((product: any) => product.productId !== productId);
     localStorage.setItem('products', JSON.stringify(this.products));
+  }
+
+  clickEditProduct(productId: number){
+    this.router.navigate(['products', productId]);
   }
 }
