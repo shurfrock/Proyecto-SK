@@ -1,13 +1,11 @@
-<div class="button_margin" >
-    <button type="button" class="btn btn-primary" routerLink="">HOME</button>
-</div>
 <div class="margin_sides">
-    <table class="table table-striped">
+    <h1>Productos</h1>
+    <table class="table table-striped table-borderless">
         <thead class="table-dark">
             <tr>
                 <th>Nombre</th>
                 <th>Cantidad</th>
-                <th>Costo USD</th>
+                <th>Costo EUR</th>
                 <th>Costo MX</th>
                 <th>Acciones</th>
             </tr>
@@ -23,17 +21,36 @@
                 <td>
                     $ {{product.productCost}}.00
                 </td>
-                <td></td>
+                <td>$ {{ (product.productCost * eurPrice).toFixed(2) }}</td>
                 <td>
                     <div class="d-flex column-gap-3">
-                        <button type="button" class="btn btn-danger" (click)="deleteProduct(product.productId)"> Eliminar </button>
+                        <button type="button" class="btn btn-danger" data-prop="product.productId" data-bs-toggle="modal" data-bs-target="#deleteModal"> Eliminar </button>
                         <button type="button" class="btn btn-secondary" (click)="clickEditProduct(product.productId)"> Editar </button>
                     </div> 
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-label="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="deleteModal">ATENCION</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                ¿Deseas Eliminar el producto?
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Atras</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteProduct(product.productId)">Borrar</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </tbody>
     </table>
     <div class="button_margin">
         <button type="button" class="btn btn-success" routerLink="/newProduct"> Nuevo Producto </button>
-    </div>  
+    </div> 
 </div>
+
+

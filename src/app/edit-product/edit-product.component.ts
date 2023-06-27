@@ -36,6 +36,11 @@ export class EditProductComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  /*
+    Actualizamos el producto que se quiere modificar en el arreglo de objetos.
+    Sobreescribimos el arreglo actual.
+    Redirigimos al usuario de nuevo a la tabla de productos
+  */
   onSubmit(){
     const newProducts = this.products.map(product => {
       if (product.productId.toString() === this.productId) {

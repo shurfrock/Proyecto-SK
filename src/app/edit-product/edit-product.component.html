@@ -24,13 +24,17 @@
             >
         </div>
         <div class="mb-3">
-            <label class="form-label">Costo $ USD</label>
-            <input
-                [class.is-invalid]="newProductForm.get('productCost')?.touched && newProductForm.get('productCost')?.invalid"
-                type="text" 
-                class="form-control" 
-                formControlName="productCost"
-            >
+            <label class="form-label">Costo EUR</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text">$</span>
+                <input
+                    [class.is-invalid]="newProductForm.get('productCost')?.touched && newProductForm.get('productCost')?.invalid"
+                    type="text" 
+                    class="form-control" 
+                    formControlName="productCost"
+                >
+                <span class="input-group-text">.00</span>
+            </div>
         </div>
         <button type="submit" class="btn btn-success">Guardar</button>
       </form>

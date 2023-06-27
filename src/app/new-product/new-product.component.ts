@@ -20,6 +20,12 @@ export class NewProductComponent implements OnInit {
     productCost : new FormControl('', Validators.required)
   });
 
+  /*
+    Creamos un id con la fecha actual para asegurarnos de que sea único
+    Leemos los productos del localStorage y creamos el nuevo producto con los valores del
+    formulario y el id.
+    Sobreescribimos los productos en el localStorage y redirigimos al usuario a la tabla de productos.
+  */
   onSubmit(){
     const productId = new Date().getTime();
     const products = JSON.parse(localStorage.getItem('products') || '[]');
