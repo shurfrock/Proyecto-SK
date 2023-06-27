@@ -21,7 +21,7 @@
                 <td>
                     $ {{product.productCost}}.00
                 </td>
-                <td>$ {{ (product.productCost * eurPrice).toFixed(2) }}</td>
+                <td>$ {{ (+product.productCost * eurPrice).toFixed(2) }}</td>
                 <td>
                     <div class="d-flex column-gap-3">
                         <button type="button" class="btn btn-danger" data-prop="product.productId" data-bs-toggle="modal" data-bs-target="#deleteModal"> Eliminar </button>
