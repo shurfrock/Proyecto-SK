@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExchangeService } from '../exchange.service';
+import { Product } from 'src/types';
 
 @Component({
   selector: 'app-products',
@@ -10,14 +11,14 @@ import { ExchangeService } from '../exchange.service';
 export class ProductsComponent implements OnInit {
 
   eurPrice: number = 0
-  products = JSON.parse(localStorage.getItem('products') || '[]');
+  products: Product[] = JSON.parse(localStorage.getItem('products') || '[]');
 
   constructor(private router: Router, private exchangeService: ExchangeService) { }
 
   ngOnInit(): void {
     // Hacer una llamada a la API para obtener el último precio del euro en pesos mexicanos
     this.exchangeService.getLatestEURPrice().subscribe(response => {
-      this.eurPrice = response.rates['MXN']
+      this.eurPrice = Number(response.rates['MXN'])
     })
   }
 
